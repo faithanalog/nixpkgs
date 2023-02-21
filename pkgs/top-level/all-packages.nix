@@ -19992,6 +19992,7 @@ with pkgs;
       else targetPackages.darwin.LibsystemCross or (throw "don't yet have a `targetPackages.darwin.LibsystemCross for ${stdenv.targetPlatform.config}`")
     else if name == "fblibc" then targetPackages.freebsdCross.libc or freebsdCross.libc
     else if name == "nblibc" then targetPackages.netbsdCross.libc or netbsdCross.libc
+    else if name == "illibc" then targetPackages.illumosCross.libc or illumosCross.libc
     else if name == "wasilibc" then targetPackages.wasilibc or wasilibc
     else if name == "relibc" then targetPackages.relibc or relibc
     else if stdenv.targetPlatform.isGhcjs then null
@@ -38995,6 +38996,11 @@ with pkgs;
 
   netbsd = callPackage ../os-specific/bsd/netbsd {};
   netbsdCross = callPackage ../os-specific/bsd/netbsd {
+    stdenv = crossLibcStdenv;
+  };
+
+  illumos = callPackage ../os-specific/illumos {};
+  illumosCross = callPackage ../os-specific/illumos {
     stdenv = crossLibcStdenv;
   };
 

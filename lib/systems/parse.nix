@@ -477,6 +477,7 @@ rec {
         else                     vendors.unknown;
       kernel = if hasPrefix "darwin" args.kernel      then getKernel "darwin"
                else if hasPrefix "netbsd" args.kernel then getKernel "netbsd"
+               else if hasPrefix "solaris" args.kernel then getKernel "solaris"
                else                                   getKernel args.kernel;
       abi =
         /**/ if args ? abi       then getAbi args.abi

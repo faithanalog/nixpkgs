@@ -49,6 +49,7 @@ rec {
         else if final.isLinux /* default */ then "glibc"
         else if final.isFreeBSD             then "fblibc"
         else if final.isNetBSD              then "nblibc"
+        else if final.isSunOS               then "illibc"
         else if final.isAvr                 then "avrlibc"
         else if final.isNone                then "newlib"
         # TODO(@Ericson2314) think more about other operating systems

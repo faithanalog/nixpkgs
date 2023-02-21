@@ -318,6 +318,11 @@ rec {
     useLLVM = true;
   };
 
+  # illumos
+  x86_64-illumos = {
+    config = "x86_64-solaris2.11";
+  };
+
   #
   # WASM
   #
